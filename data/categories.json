@@ -1,0 +1,24 @@
+[
+    {
+        "id": "01",
+        "name": "Fresh Fruits",
+        "image": "https://cdn.shopify.com/s/files/1/0011/9868/6266/files/2_cd5a3e16-dea7-43e2-85e8-babb8fd19421.png?v=1621663058"
+
+    },
+    {
+        "id": "02",
+        "name": "Vegatables",
+        "image":"https://cdn.shopify.com/s/files/1/0011/9868/6266/files/3_c02ac738-b755-4746-9d6e-d286d01021bc.png?v=1621667890"
+    },
+    {
+        "id": "03",
+        "name": "Fish & Meat",
+        "image":"https://cdn.shopify.com/s/files/1/0011/9868/6266/files/4_58f127ee-2a06-4ec3-b017-c931a99f327d.png?v=1621667855"
+    },
+    {
+        "id": "04",
+        "name": "weaters",
+        "image":"https://cdn.shopify.com/s/files/1/0011/9868/6266/files/5_1657e1fc-fd61-48ad-8ba5-5841ef6e1664.png?v=1621668008"
+    }
+ 
+]

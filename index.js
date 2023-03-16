@@ -14,11 +14,11 @@ app.use(express.json());
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.izqajim.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-
 async function run(){
         
     try{
            const blogCollection = client.db('harmicUser').collection('blogs');
+           const itemsCollection = client.db('harmicUser').collection('categoriesCollection');
 
 
                 /////all get api/////////////////
@@ -47,6 +47,32 @@ async function run(){
                 }
     
             })
+                
+
+            //categories get api
+            app.get('/categories', async(req, res) =>{
+               
+                const result = await itemsCollection.find({}).toArray();
+                if(result.length){
+                    res.send({result, success: true})
+                }
+                else{
+                    res.send({success: false, message: 'Something went wrong'})
+                }
+            })
+
+             //categories get by specific id
+                     
+        app.get('/categories/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id:new ObjectId(id)};
+            const category = await itemsCollection.findOne(query);
+            res.send(category);
+        });
+
+
+
+
 
            //blog post api
            app.post('/blogs', async(req, res) =>{
@@ -101,9 +127,6 @@ async function run(){
     }
 }
 run().catch(err=>console.error(err));
-
-
-
 
 app.get('/', (req, res) => {
     res.send('harmic server is running')
